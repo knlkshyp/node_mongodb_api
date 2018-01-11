@@ -9,25 +9,28 @@ MongoClient.connect('mongodb://localhost:27017/to_do_app', (err, db) => {
 
     const mydb = db.db('to_do_app');
 
-    // returns number of deleted documents and other details.
-
-    // mydb.collection('to_do').deleteMany({
-    //     text: 'Something to do'
+    // mydb.collection('to_do').findOneAndUpdate({
+    //     _id: new ObjectID('5a55d7516aadfb23a043c754')
+    // },{
+    //     $set: {
+    //         text: 'one'
+    //     }
+    // },{
+    //     returnOriginal: false
     // }).then((res) => {
     //     console.log(res);
     // });
 
-
-    // returns number of deleted document and details.
-
-    // mydb.collection('to_do').deleteOne({
-    //     text: 'one'
-    // }).then((res) => {
-    //     console.log(res);
-    // });
-
-    mydb.collection('to_do').findOneAndDelete({
-        text: 'one'
+    mydb.collection('users').findOneAndUpdate({
+        _id: new ObjectID('5a548670a5c726205c528118'),
+    },{
+        $set: {
+            name: 'Wild Stone',
+        }, $inc:{
+            age: 0
+        }
+    },{
+        returnOriginal: false
     }).then((res) => {
         console.log(res);
     });

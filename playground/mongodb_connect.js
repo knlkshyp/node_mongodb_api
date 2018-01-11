@@ -20,9 +20,9 @@ MongoClient.connect('mongodb://localhost:27017/to_do_app', (err, db) => {
     });
 
     mydb.collection('users').insertOne({
-        name: 'Kunal Kashyap',
+        name: 'Wild Stone',
         age: 22,
-        location: 'Bhopal'
+        location: 'B'
     }, (err, res) => {
         if (err)
             return console.log('Unable to insert users', err);
