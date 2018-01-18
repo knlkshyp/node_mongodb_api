@@ -19,6 +19,14 @@ app.post('/lists',(req, res) => {
     });
 });
 
+app.get('/lists',(req, res) => {
+    list.find().then((todos) => {
+        res.send({todos});
+    }, (err) => {
+        res.send(err);
+    });
+});
+
 app.listen(3000, () => {
     console.log('Up');
 });
